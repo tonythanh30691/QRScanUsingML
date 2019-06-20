@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+                name="databinding"
+                type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".CameraReviewActivity">
+
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintTop_toTopOf="parent">
+
+            <com.otaliastudios.cameraview.CameraView
+                    android:id="@+id/cameraView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cameraAudio="off">
+            </com.otaliastudios.cameraview.CameraView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintGuide_percent="0.05"
+                        android:orientation="vertical"
+                        android:id="@+id/leftGui"/>
+
+                <View android:layout_width="0dp"
+                      android:layout_height="0dp"
+                      app:layout_constraintLeft_toRightOf="@+id/leftGui"
+                      app:layout_constraintRight_toLeftOf="@id/rightGui"
+                      app:layout_constraintTop_toTopOf="parent"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintDimensionRatio="1:1"
+                      android:id="@+id/viewCenter"/>
+
+                <ImageView android:layout_width="@dimen/camera_conner_width"
+                           android:layout_height="@dimen/camera_conner_width"
+                           app:layout_constraintTop_toTopOf="@id/viewCenter"
+                           app:layout_constraintRight_toRightOf="@id/viewCenter"
+                           android:background="@drawable/top_right_conner"/>
+
+                <ImageView android:layout_width="@dimen/camera_conner_width"
+                           android:layout_height="@dimen/camera_conner_width"
+                           app:layout_constraintTop_toTopOf="@id/viewCenter"
+                           app:layout_constraintLeft_toLeftOf="@id/viewCenter"
+                           android:background="@drawable/top_right_conner"
+                           android:rotation="-90"/>
+
+                <ImageView android:layout_width="@dimen/camera_conner_width"
+                           android:layout_height="@dimen/camera_conner_width"
+                           app:layout_constraintBottom_toBottomOf="@id/viewCenter"
+                           app:layout_constraintLeft_toLeftOf="@id/viewCenter"
+                           android:background="@drawable/top_right_conner"
+                           android:rotation="180"/>
+
+                <ImageView android:layout_width="@dimen/camera_conner_width"
+                           android:layout_height="@dimen/camera_conner_width"
+                           app:layout_constraintBottom_toBottomOf="@id/viewCenter"
+                           app:layout_constraintRight_toRightOf="@id/viewCenter"
+                           android:background="@drawable/top_right_conner"
+                           android:rotation="90"/>
+
+                <ImageView android:layout_width="@dimen/camera_focus_plus"
+                           android:layout_height="@dimen/camera_focus_plus"
+                           app:layout_constraintBottom_toBottomOf="@id/viewCenter"
+                           app:layout_constraintRight_toRightOf="@id/viewCenter"
+                           app:layout_constraintLeft_toLeftOf="@id/viewCenter"
+                           app:layout_constraintTop_toTopOf="@id/viewCenter"
+                           android:background="@drawable/camera_focus_plus"
+                           android:id="@+id/viewFocus"/>
+
+
+                <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/rightGui"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintGuide_percent="0.95"
+                        android:orientation="vertical"/>
+
+                <View
+                        android:layout_width="0dp" android:layout_height="0dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/viewCenter"
+                        android:id="@+id/viewTop"
+                        android:background="@color/camera_dim_background_color"
+                        android:alpha="@integer/camera_dim_background_alpha"/>
+
+                <LinearLayout
+                        android:layout_width="0dp" android:layout_height="0dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewCenter"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/viewBottom"
+                        android:background="@color/camera_dim_background_color"
+                        android:alpha="@integer/camera_dim_background_alpha"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                    <TextView
+                            android:id="@+id/txtStatusLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scanning..."
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/camera_status_color"/>
+                    <TextView
+                            android:id="@+id/txtStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            style="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            android:textColor="@color/camera_status_color"/>
+
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="0dp" android:layout_height="0dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/viewCenter"
+                        app:layout_constraintTop_toTopOf="@id/viewCenter"
+                        app:layout_constraintBottom_toBottomOf="@id/viewCenter"
+                        android:id="@+id/viewLeft"
+                        android:background="@color/camera_dim_background_color"
+                        android:alpha="@integer/camera_dim_background_alpha"/>
+
+                <LinearLayout
+                        android:layout_width="0dp" android:layout_height="0dp"
+                        app:layout_constraintLeft_toRightOf="@id/viewCenter"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/viewCenter"
+                        app:layout_constraintBottom_toBottomOf="@id/viewCenter"
+                        android:id="@+id/viewRight"
+                        android:background="@color/camera_dim_background_color"
+                        android:alpha="@integer/camera_dim_background_alpha"
+                        android:orientation="vertical"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </FrameLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

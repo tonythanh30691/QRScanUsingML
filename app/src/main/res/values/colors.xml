@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="camera_dim_background_color">#37474F</color>
+    <color name="camera_status_color">#FFFDE7</color>
+
+    <color name="camera_conner_color">#4DD0E1</color>
+</resources>
