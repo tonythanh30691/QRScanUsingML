@@ -223,7 +223,7 @@ class CameraReviewActivity : AppCompatActivity(), CoroutineScope by CoroutineSco
 
     private fun focusCameraAnimation() {
         launch {
-            while (true) {
+            while (isActive) {
                 delay(1000)
                 withContext(Dispatchers.Main) {
                     var animation = AlphaAnimation(0.0f, 1.0f)
